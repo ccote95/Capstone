@@ -1,7 +1,9 @@
-export const PostLayout = () => {
-  <div>
+export const PostLayout = ({ post }) => {
+  return (
     <div>
-      <h1>{post.title}</h1>
+      <div>
+        <h1>{post.body}</h1>
+      </div>
     </div>
-  </div>;
+  );
 };

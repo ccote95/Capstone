@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../services/postService.js";
+import { PostLayout } from "./PostLayout.jsx";
 
 export const AllPosts = () => {
   const [posts, setPosts] = useState({});
@@ -15,5 +16,11 @@ export const AllPosts = () => {
       setPosts(postsObj);
     });
   }, []);
-  return <div>all posts</div>;
+  return (
+    <div>
+      {posts.map((post) => {
+        return <PostLayout post={post} />;
+      })}
+    </div>
+  );
 };
