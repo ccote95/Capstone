@@ -4,6 +4,16 @@
  * create another module for the layout of a post
  */
 
+import { useEffect, useState } from "react";
+import { getAllPosts } from "../services/postService.js";
+
 export const AllPosts = () => {
+  const [posts, setPosts] = useState({});
+
+  useEffect(() => {
+    getAllPosts().then((postsObj) => {
+      setPosts(postsObj);
+    });
+  }, []);
   return <div>all posts</div>;
 };
