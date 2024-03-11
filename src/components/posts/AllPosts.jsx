@@ -9,7 +9,7 @@ import { getAllPosts } from "../services/postService.js";
 import { PostLayout } from "./PostLayout.jsx";
 
 export const AllPosts = () => {
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
   /**gets all posts on initial render and stores them in state */
   useEffect(() => {
     getAllPosts().then((postsObj) => {

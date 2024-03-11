@@ -1,9 +1,11 @@
 export const PostLayout = ({ post }) => {
   return (
-    <div>
-      <div>
-        <h1>{post.body}</h1>
+    <div className="post">
+      <div className="post-title">
+        <h3>{post.title}</h3>
       </div>
+      <div className="post-format">{post.format.name}</div>
+      <div className="post-date">{post.date}</div>
     </div>
   );
 };
