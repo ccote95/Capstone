@@ -11,4 +11,6 @@
 .navbar-item {
   list-style-type: none;
   flex-basis: 20%;
+  margin: 5px;
+  padding: 5px;
 }
