@@ -1,9 +1,11 @@
 .navbar {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-wrap: nowrap;
   background-color: darkgrey;
   margin: 0;
+  margin-bottom: 5px;
+
   width: 100%;
   padding: 1px;
 }
@@ -13,4 +15,10 @@
   flex-basis: 20%;
   margin: 5px;
   padding: 5px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: black;
+  letter-spacing: 1px;
 }

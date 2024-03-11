@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import { Welcome } from "../welcome/Welcome.jsx";
 import { NavBar } from "../navbar/NavBar.jsx";
+import { AllPosts } from "../posts/AllPosts.jsx";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -24,6 +25,7 @@ export const ApplicationViews = () => {
         }
       >
         <Route index element={<Welcome />} />
+        <Route path="allposts" element={<AllPosts />} />
       </Route>
     </Routes>
   );
