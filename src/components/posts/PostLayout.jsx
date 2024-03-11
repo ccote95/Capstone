@@ -1,3 +1,5 @@
+import "./post.css";
+
 export const PostLayout = ({ post }) => {
   return (
     <div className="post">

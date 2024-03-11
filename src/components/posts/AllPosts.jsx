@@ -17,7 +17,7 @@ export const AllPosts = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="post-card">
       {posts.map((post) => {
         return <PostLayout post={post} />;
       })}
