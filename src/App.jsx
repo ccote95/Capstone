@@ -3,6 +3,7 @@ import "./App.css";
 import { Login } from "./components/auth/Login.jsx";
 import { Register } from "./components/auth/Register.jsx";
 import { ApplicationViews } from "./components/views/ApplicationViews.jsx";
+import { Authorized } from "./components/views/Authorized.jsx";
 
 /** Folders i will need :
  * posts
@@ -42,7 +43,14 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      <Route path="*" element={<ApplicationViews />} />
+      <Route
+        path="*"
+        element={
+          <Authorized>
+            <ApplicationViews />
+          </Authorized>
+        }
+      />
     </Routes>
   );
 }
