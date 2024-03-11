@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Login } from "./components/auth/Login.jsx";
 import { Register } from "./components/auth/Register.jsx";
+import { ApplicationViews } from "./components/views/ApplicationViews.jsx";
 
 /** Folders i will need :
  * posts
@@ -40,6 +41,8 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      <Route path="*" element={<ApplicationViews />} />
     </Routes>
   );
 }

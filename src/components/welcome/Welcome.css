@@ -1,0 +1,9 @@
+.welcome-container {
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.welcome-title > h1 {
+  font-weight: lighter;
+  font-style: italic;
+}
