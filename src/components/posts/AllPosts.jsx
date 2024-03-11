@@ -17,10 +17,12 @@ export const AllPosts = () => {
     });
   }, []);
   return (
-    <div className="post-card">
-      {posts.map((post) => {
-        return <PostLayout post={post} />;
-      })}
+    <div>
+      <div className="post-card">
+        {posts.map((post) => {
+          return <PostLayout post={post} />;
+        })}
+      </div>
     </div>
   );
 };
