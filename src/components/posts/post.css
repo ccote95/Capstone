@@ -9,8 +9,21 @@
   margin: auto;
   margin-top: 1em;
   border-radius: 15px;
+  background-color: #dda15e;
+  -webkit-box-shadow: 4px 3px 23px 8px rgba(0, 0, 0, 0.84);
+  box-shadow: 4px 3px 23px 8px rgba(0, 0, 0, 0.84);
 }
 
 .post-title {
   font-size: x-large;
+}
+
+.post-date {
+  text-align: start;
+  margin-left: 10px;
+}
+
+.post-format {
+  font-size: larger;
+  font-style: italic;
 }
