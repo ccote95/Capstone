@@ -1,0 +1,16 @@
+.navbar {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: darkgrey;
+  margin: 0;
+  width: 100%;
+  padding: 1px;
+}
+
+.navbar-item {
+  list-style-type: none;
+  flex-basis: 20%;
+  margin: 5px;
+  padding: 5px;
+}
