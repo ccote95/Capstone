@@ -36,3 +36,22 @@
 .post-container {
   margin-top: 2em;
 }
+
+.filter-container {
+  display: flex;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.format-dropdown {
+  margin-right: 10px;
+}
+
+.create-post-btn {
+  margin-left: 7px;
+  height: 25px;
+  background-color: #606c38;
+  color: white;
+  cursor: pointer;
+}

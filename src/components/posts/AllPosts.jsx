@@ -2,29 +2,44 @@
  * im going to need to get all posts and store them in state.
  * i will need to map the posts
  * create another module for the layout of a post
- * create a module for filtering posts
- * need to make a create post button
  */
 
 import { useEffect, useState } from "react";
 import { getAllPosts } from "../services/postService.js";
 import { PostLayout } from "./PostLayout.jsx";
+import { PostFilter } from "./PostFilter.jsx";
 
 export const AllPosts = () => {
   const [posts, setPosts] = useState([]);
+  const [filteredFormat, setFilteredFormat] = useState([]);
+  const [showFormat, setShowFormat] = useState(0);
   /**gets all posts on initial render and stores them in state */
   useEffect(() => {
     getAllPosts().then((postsObj) => {
       setPosts(postsObj);
     });
   }, []);
+
+  useEffect(() => {
+    if (parseInt(showFormat) != 0) {
+      const chosenFormat = posts.filter(
+        (post) => post.formatId === parseInt(showFormat)
+      );
+      setFilteredFormat(chosenFormat);
+    } else {
+      setFilteredFormat(posts);
+    }
+  }, [showFormat, posts]);
   return (
-    <div className="post-container">
-      <div className="post-card">
-        {posts.map((post) => {
-          return <PostLayout post={post} />;
-        })}
+    <>
+      <div>{<PostFilter setShowFormat={setShowFormat} />}</div>
+      <div className="post-container">
+        <div className="post-card">
+          {filteredFormat.map((post) => {
+            return <PostLayout post={post} />;
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
