@@ -84,3 +84,33 @@
 .edit-post-btn {
   border-radius: 5px;
 }
+
+.main-comment-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+
+.comment-flexbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-box {
+  height: 75px;
+  width: 465px;
+}
+
+.comment-btn {
+  height: 40px;
+  width: 80px;
+  background-color: blue;
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+  border-style: none;
+  cursor: pointer;
+}
