@@ -40,10 +40,6 @@ export const PostDetails = ({ currentUser }) => {
     setComment(e.target.value);
   };
 
-  const onClickHandler = () => {
-    setCommentList((commentList) => [...commentList, comment]);
-  };
-
   const handleSubmit = () => {
     const newComment = {
       userId: currentUser.id,
@@ -52,6 +48,7 @@ export const PostDetails = ({ currentUser }) => {
       date: new Date().toDateString(),
     };
     submitNewComment(newComment);
+    setComment("");
   };
   return (
     <div>
@@ -76,12 +73,12 @@ export const PostDetails = ({ currentUser }) => {
           )}
         </section>
       </article>
-      <div>
+      <div className="comment-container">
         {commentList.map((comment) => {
           return (
-            <div className="comment-container">
-              <div>{comment.body}</div>
-              <div>{comment.date}</div>
+            <div className="comments">
+              <div className="comment-body">{comment.body}</div>
+              <div className="comment-date">{comment.date}</div>
             </div>
           );
         })}
@@ -89,7 +86,11 @@ export const PostDetails = ({ currentUser }) => {
       <div className="main-comment-container">
         <div className="comment-flexbox">
           <h3>Comment</h3>
-          <textarea className="input-box" onChange={onChangeHandler} />
+          <textarea
+            className="input-box"
+            value={comment}
+            onChange={onChangeHandler}
+          />
           <button className="comment-btn" onClick={handleSubmit}>
             Submit
           </button>
