@@ -11,18 +11,31 @@ import { PostFilter } from "./PostFilter.jsx";
 
 export const AllPosts = () => {
   const [posts, setPosts] = useState([]);
+  const [filteredFormat, setFilteredFormat] = useState([]);
+  const [showFormat, setShowFormat] = useState();
   /**gets all posts on initial render and stores them in state */
   useEffect(() => {
     getAllPosts().then((postsObj) => {
       setPosts(postsObj);
     });
   }, []);
+
+  useEffect(() => {
+    if (parseInt(showFormat) != 0) {
+      const chosenFormat = posts.filter(
+        (post) => post.formatId === parseInt(showFormat)
+      );
+      setFilteredFormat(chosenFormat);
+    } else {
+      setFilteredFormat(posts);
+    }
+  }, [showFormat, posts]);
   return (
     <>
-      <div>{<PostFilter />}</div>
+      <div>{<PostFilter setShowFormat={setShowFormat} />}</div>
       <div className="post-container">
         <div className="post-card">
-          {posts.map((post) => {
+          {filteredFormat.map((post) => {
             return <PostLayout post={post} />;
           })}
         </div>
