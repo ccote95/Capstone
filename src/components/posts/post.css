@@ -86,7 +86,7 @@
 }
 
 .main-comment-container {
-  height: 70vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: end;

@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getAllComments, getPostById } from "../services/postService.js";
+import {
+  getAllComments,
+  getPostById,
+  submitNewComment,
+} from "../services/postService.js";
 import { useParams } from "react-router";
 
 /**when i click submit on the comment i should send the comment to the database
@@ -39,6 +43,16 @@ export const PostDetails = ({ currentUser }) => {
   const onClickHandler = () => {
     setCommentList((commentList) => [...commentList, comment]);
   };
+
+  const handleSubmit = () => {
+    const newComment = {
+      userId: currentUser.id,
+      postId: post.id,
+      body: comment,
+      date: new Date().toDateString(),
+    };
+    submitNewComment(newComment);
+  };
   return (
     <div>
       <article className="post-details">
@@ -64,14 +78,19 @@ export const PostDetails = ({ currentUser }) => {
       </article>
       <div>
         {commentList.map((comment) => {
-          return <div className="comment-container">{comment.body}</div>;
+          return (
+            <div className="comment-container">
+              <div>{comment.body}</div>
+              <div>{comment.date}</div>
+            </div>
+          );
         })}
       </div>
       <div className="main-comment-container">
         <div className="comment-flexbox">
           <h3>Comment</h3>
           <textarea className="input-box" onChange={onChangeHandler} />
-          <button className="comment-btn" onClick={onClickHandler}>
+          <button className="comment-btn" onClick={handleSubmit}>
             Submit
           </button>
         </div>
