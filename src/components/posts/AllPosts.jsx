@@ -2,6 +2,8 @@
  * im going to need to get all posts and store them in state.
  * i will need to map the posts
  * create another module for the layout of a post
+ * create a module for filtering posts
+ * need to make a create post button
  */
 
 import { useEffect, useState } from "react";
@@ -17,7 +19,7 @@ export const AllPosts = () => {
     });
   }, []);
   return (
-    <div>
+    <div className="post-container">
       <div className="post-card">
         {posts.map((post) => {
           return <PostLayout post={post} />;
