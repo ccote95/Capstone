@@ -15,7 +15,9 @@ export const getAllFormats = () => {
 };
 
 export const getAllComments = () => {
-  return fetch(`http://localhost:8000/comments`).then((res) => res.json());
+  return fetch(`http://localhost:8000/comments/?_expand=user`).then((res) =>
+    res.json()
+  );
 };
 
 export const submitNewComment = (newComment) => {

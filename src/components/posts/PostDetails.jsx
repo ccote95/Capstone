@@ -28,7 +28,7 @@ export const PostDetails = ({ currentUser }) => {
       );
       setCommentList(allComments);
     });
-  }, [commentList]);
+  }, [post]);
 
   const reRenderPage = () => {
     getPostById(postId).then((post) => {
@@ -77,6 +77,7 @@ export const PostDetails = ({ currentUser }) => {
         {commentList.map((comment) => {
           return (
             <div className="comments">
+              <div>{comment.user?.fullName}</div>
               <div className="comment-body">{comment.body}</div>
               <div className="comment-date">{comment.date}</div>
             </div>
