@@ -1,21 +1,22 @@
 .post-card {
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
-  flex-direction: column;
+
   text-align: center;
+  align-items: center;
 }
 .post {
   margin-top: 10px;
+  flex-basis: 30%;
   background-color: #dda15e;
-  width: 65%;
+
   box-sizing: border-box;
   margin: auto;
   margin-top: 3em;
   border-radius: 15px;
 
-  -webkit-box-shadow: 4px 3px 23px 8px rgba(0, 0, 0, 0.84);
-  box-shadow: 4px 3px 23px 8px rgba(0, 0, 0, 0.84);
+  -webkit-box-shadow: 4px 3px 15px 12px rgba(0, 0, 0, 0.84);
+  box-shadow: 4px 3px 15px 12px rgba(0, 0, 0, 0.84);
 }
 
 .post-title {
@@ -30,4 +31,8 @@
 .post-format {
   font-size: larger;
   font-style: italic;
+}
+
+.post-container {
+  margin-top: 2em;
 }
