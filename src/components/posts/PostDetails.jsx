@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPostById } from "../services/postService.js";
+import { getAllComments, getPostById } from "../services/postService.js";
 import { useParams } from "react-router";
 
 /**when i click submit on the comment i should send the comment to the database
@@ -16,6 +16,15 @@ export const PostDetails = ({ currentUser }) => {
   useEffect(() => {
     reRenderPage();
   }, []);
+
+  useEffect(() => {
+    getAllComments().then((comments) => {
+      const allComments = comments.filter(
+        (comment) => comment.postId === post.id
+      );
+      setCommentList(allComments);
+    });
+  }, [commentList]);
 
   const reRenderPage = () => {
     getPostById(postId).then((post) => {
@@ -53,9 +62,11 @@ export const PostDetails = ({ currentUser }) => {
           )}
         </section>
       </article>
-      {commentList.map((text) => (
-        <div className="comment-container">{text}</div>
-      ))}
+      <div>
+        {commentList.map((comment) => {
+          return <div className="comment-container">{comment.body}</div>;
+        })}
+      </div>
       <div className="main-comment-container">
         <div className="comment-flexbox">
           <h3>Comment</h3>

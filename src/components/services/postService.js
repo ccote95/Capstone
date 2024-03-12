@@ -13,3 +13,7 @@ export const getPostById = (postId) => {
 export const getAllFormats = () => {
   return fetch("http://localhost:8000/formats").then((res) => res.json());
 };
+
+export const getAllComments = () => {
+  return fetch(`http://localhost:8000/comments`).then((res) => res.json());
+};
