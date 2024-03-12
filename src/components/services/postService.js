@@ -3,3 +3,7 @@ export const getAllPosts = () => {
     res.json()
   );
 };
+
+export const getAllFormats = () => {
+  return fetch("http://localhost:8000/formats").then((res) => res.json());
+};
