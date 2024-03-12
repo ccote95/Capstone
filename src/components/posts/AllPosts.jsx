@@ -12,7 +12,7 @@ import { PostFilter } from "./PostFilter.jsx";
 export const AllPosts = () => {
   const [posts, setPosts] = useState([]);
   const [filteredFormat, setFilteredFormat] = useState([]);
-  const [showFormat, setShowFormat] = useState();
+  const [showFormat, setShowFormat] = useState(0);
   /**gets all posts on initial render and stores them in state */
   useEffect(() => {
     getAllPosts().then((postsObj) => {
