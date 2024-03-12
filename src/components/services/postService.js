@@ -6,7 +6,7 @@ export const getAllPosts = () => {
 
 export const getPostById = (postId) => {
   return fetch(
-    ` http://localhost:8000/posts/${postId}?_embed=comments&_expand=format&_expand=deck`
+    `  http://localhost:8000/posts/${postId}?_embed=comments&_expand=format&_expand=deck&_expand=user`
   ).then((res) => res.json());
 };
 
