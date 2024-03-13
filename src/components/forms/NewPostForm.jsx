@@ -39,6 +39,20 @@ export const NewPostForm = ({ currentUser }) => {
     });
   }, []);
 
+  const handleSave = () => {
+    const newPostObject = {
+      userId: currentUser.id,
+      title: post.title,
+      formatId: post.formatId,
+      deckId: post.deckId,
+      body: post.body,
+      date: new Date().toLocaleDateString(),
+    };
+    createPost(newPostObject).then(() => {
+      navigate("/allposts");
+    });
+  };
+
   return (
     <form className="new-post">
       <fieldset>
@@ -101,7 +115,9 @@ export const NewPostForm = ({ currentUser }) => {
         />
       </fieldset>
       <fieldset>
-        <button className="submit-post">Submit Post</button>
+        <button className="submit-post" onClick={handleSave}>
+          Submit Post
+        </button>
       </fieldset>
     </form>
   );
