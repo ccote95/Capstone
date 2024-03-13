@@ -35,3 +35,9 @@ export const updatePost = (updatedPost) => {
   };
   return fetch(`http://localhost:8000/posts/${updatedPost.id}`, updateOptions);
 };
+
+export const getCurrentUserPosts = (id) => {
+  return fetch(`http://localhost:8000/posts?userId=${id}`).then((res) =>
+    res.json()
+  );
+};
