@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getCommentsByUserId } from "../services/commentService.js";
 import { getCurrentUserPosts } from "../services/postService.js";
+import { PostLayout } from "./PostLayout.jsx";
 
 export const MyPosts = ({ currentUser }) => {
   const [currentUserPosts, setCurrentUserPosts] = useState([]);
@@ -12,4 +12,19 @@ export const MyPosts = ({ currentUser }) => {
       });
     }
   }, [currentUser]);
+
+  return (
+    <>
+      <div className="myposts-title">
+        <h1>My Posts</h1>
+      </div>
+      <div className="post-container">
+        <div className="post-card">
+          {currentUserPosts.map((post) => {
+            return <PostLayout post={post} key={post.id} />;
+          })}
+        </div>
+      </div>
+    </>
+  );
 };

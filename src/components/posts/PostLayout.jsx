@@ -14,7 +14,7 @@ export const PostLayout = ({ post }) => {
           </Link>
         </h3>
       </div>
-      <div className="post-format">{post.format.name}</div>
+      <div className="post-format">{post.format?.name}</div>
       <div className="post-date">{post.date}</div>
     </div>
   );
