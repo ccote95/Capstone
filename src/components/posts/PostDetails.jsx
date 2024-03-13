@@ -3,6 +3,7 @@ import {
   getAllComments,
   getPostById,
   submitNewComment,
+  updatePost,
 } from "../services/postService.js";
 import { useNavigate, useParams } from "react-router";
 
@@ -55,6 +56,22 @@ export const PostDetails = ({ currentUser }) => {
   const handleEditClick = () => {
     navigate(`/myposts/${post.id}`);
   };
+  /**when someone clicks gameover it should switch the value of gameOver from false to true. and remove it from the all posts. but still show in my posts */
+  const handleGameOver = () => {
+    const gameOverObj = {
+      id: post.id,
+      userId: currentUser.id,
+      title: post.title,
+      formatId: parseInt(post.formatId),
+      deckId: parseInt(post.deckId),
+      gameOver: true,
+      body: post.body,
+      date: post.date,
+    };
+    updatePost(gameOverObj).then(() => {
+      navigate("/allposts");
+    });
+  };
   return (
     <div>
       <article className="post-details">
@@ -79,6 +96,13 @@ export const PostDetails = ({ currentUser }) => {
             ""
           )}
         </section>
+        <div className="game-over-btn">
+          {currentUser?.id === post.userId ? (
+            <button onClick={handleGameOver}>Game Over</button>
+          ) : (
+            ""
+          )}
+        </div>
       </article>
       <div className="comment-container">
         {commentList.map((comment) => {
