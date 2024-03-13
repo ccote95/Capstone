@@ -4,7 +4,7 @@ import {
   getPostById,
   submitNewComment,
 } from "../services/postService.js";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 /**when i click submit on the comment i should send the comment to the database
  * comments should get pulled from the database and rendered on initial render
@@ -16,6 +16,7 @@ export const PostDetails = ({ currentUser }) => {
   const { postId } = useParams();
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     reRenderPage();
@@ -50,6 +51,10 @@ export const PostDetails = ({ currentUser }) => {
     submitNewComment(newComment);
     setComment("");
   };
+
+  const handleEditClick = () => {
+    navigate(`/myposts/${post.id}`);
+  };
   return (
     <div>
       <article className="post-details">
@@ -66,7 +71,9 @@ export const PostDetails = ({ currentUser }) => {
         <section>
           {currentUser?.id === post.userId ? (
             <div className="edit-post">
-              <button className="edit-post-btn">Edit Post</button>
+              <button className="edit-post-btn" onClick={handleEditClick}>
+                Edit Post
+              </button>
             </div>
           ) : (
             ""

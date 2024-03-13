@@ -4,6 +4,7 @@ import {
   createNewPost,
   getAllFormats,
   getPostById,
+  updatePost,
 } from "../services/postService.js";
 import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { getAllDecks } from "../services/deckService.js";
@@ -46,17 +47,33 @@ export const NewPostForm = ({ currentUser }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    const newPostObject = {
-      userId: currentUser.id,
-      title: post.title,
-      formatId: post.formatId,
-      deckId: post.deckId,
-      body: post.body,
-      date: new Date().toLocaleDateString(),
-    };
-    createNewPost(newPostObject).then(() => {
-      navigate("/allposts");
-    });
+
+    if (postId) {
+      const updatedPost = {
+        id: post.id,
+        userId: currentUser.id,
+        title: post.title,
+        formatId: parseInt(post.formatId),
+        deckId: parseInt(post.deckId),
+        body: post.body,
+        date: post.date,
+      };
+      updatePost(updatedPost).then(() => {
+        navigate("/myposts");
+      });
+    } else {
+      const newPostObject = {
+        userId: currentUser.id,
+        title: post.title,
+        formatId: post.formatId,
+        deckId: post.deckId,
+        body: post.body,
+        date: new Date().toLocaleDateString(),
+      };
+      createNewPost(newPostObject).then(() => {
+        navigate("/allposts");
+      });
+    }
   };
 
   return (
@@ -66,7 +83,7 @@ export const NewPostForm = ({ currentUser }) => {
           <label>Title:</label>
           <input
             required
-            value={post.title}
+            value={post.title || ""}
             className="new-post-title"
             type="text"
             placeholder="title of post"
@@ -80,6 +97,7 @@ export const NewPostForm = ({ currentUser }) => {
         <div>
           <label>Format:</label>
           <select
+            value={post.formatId || ""}
             required
             className="new-post-format"
             onChange={(event) => {
@@ -97,6 +115,7 @@ export const NewPostForm = ({ currentUser }) => {
         <div>
           <label>Deck:</label>
           <select
+            value={post.deckId || ""}
             required
             className="new-post-deck"
             onChange={(event) => {
@@ -115,6 +134,7 @@ export const NewPostForm = ({ currentUser }) => {
       <fieldset className="new-body-field">
         <label>Body</label>
         <textarea
+          value={post.body || ""}
           required
           className="new-post-body"
           onChange={(event) => {
@@ -125,9 +145,13 @@ export const NewPostForm = ({ currentUser }) => {
         />
       </fieldset>
       <fieldset>
-        <button className="submit-post" type="submit">
-          Submit Post
-        </button>
+        {postId ? (
+          <button>Save Post</button>
+        ) : (
+          <button className="submit-post" type="submit">
+            Submit Post
+          </button>
+        )}
       </fieldset>
     </form>
   );
