@@ -90,7 +90,7 @@ export const NewPostForm = ({ currentUser }) => {
           >
             <option>Select a Format</option>
             {format.map((formatObj) => {
-              return <FormatDropDown format={formatObj} />;
+              return <FormatDropDown format={formatObj} key={formatObj.id} />;
             })}
           </select>
         </div>
@@ -107,7 +107,7 @@ export const NewPostForm = ({ currentUser }) => {
           >
             <option>Choose a Deck</option>
             {deck.map((deckObj) => {
-              return <DeckDropDown deck={deckObj} />;
+              return <DeckDropDown deck={deckObj} key={deckObj.id} />;
             })}
           </select>
         </div>
