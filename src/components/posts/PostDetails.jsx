@@ -53,7 +53,7 @@ export const PostDetails = ({ currentUser }) => {
   };
 
   const handleEditClick = () => {
-    navigate("/allposts");
+    navigate(`/myposts/${post.id}`);
   };
   return (
     <div>

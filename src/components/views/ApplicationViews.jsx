@@ -33,9 +33,16 @@ export const ApplicationViews = () => {
           <Route
             path=":postId"
             element={<PostDetails currentUser={currentUser} />}
-          />
+          ></Route>
           <Route
             path="create"
+            element={<NewPostForm currentUser={currentUser} />}
+          />
+        </Route>
+        <Route path="myposts">
+          {/* <Route index element={"kfjalsdkjfalksdjf"} /> */}
+          <Route
+            path=":postId"
             element={<NewPostForm currentUser={currentUser} />}
           />
         </Route>
