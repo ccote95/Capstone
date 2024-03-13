@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { getPostById, updatePost } from "../services/postService.js";
 import {
+  deleteComment,
   getAllComments,
-  getPostById,
   submitNewComment,
-  updatePost,
-} from "../services/postService.js";
+} from "../services/commentService.js";
 import { useNavigate, useParams } from "react-router";
 
 /**when i click submit on the comment i should send the comment to the database
@@ -74,6 +74,12 @@ export const PostDetails = ({ currentUser }) => {
       navigate("/allposts");
     });
   };
+
+  const handleDeleteComment = (comment) => {
+    deleteComment(comment).then(() => {
+      reRenderPage();
+    });
+  };
   return (
     <div>
       <article className="post-details">
@@ -90,7 +96,12 @@ export const PostDetails = ({ currentUser }) => {
         <section>
           {currentUser?.id === post.userId ? (
             <div className="edit-post">
-              <button className="edit-post-btn" onClick={handleEditClick}>
+              <button
+                className="edit-post-btn"
+                onClick={() => {
+                  handleEditClick;
+                }}
+              >
                 Edit Post
               </button>
             </div>
@@ -113,6 +124,19 @@ export const PostDetails = ({ currentUser }) => {
               <div>{comment.user?.fullName}</div>
               <div className="comment-body">{comment.body}</div>
               <div className="comment-date">{comment.date}</div>
+              <div>
+                {currentUser.id === comment.user?.id ? (
+                  <button
+                    onClick={() => {
+                      handleDeleteComment(comment);
+                    }}
+                  >
+                    DELETE
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           );
         })}
