@@ -40,15 +40,32 @@ export const NewPostForm = ({ currentUser }) => {
   }, []);
 
   return (
-    <form>
+    <form className="new-post">
       <fieldset>
         <div>
           <label>Title</label>
-          <input type="text" placeholder="title of post" />
+          <input
+            value={post.title}
+            className="new-post-title"
+            type="text"
+            placeholder="title of post"
+            onChange={(event) => {
+              const postCopy = { ...post };
+              postCopy.title = event.target.value;
+              setPost(postCopy);
+            }}
+          />
         </div>
         <div>
           <label>Format</label>
-          <select>
+          <select
+            className="new-post-format"
+            onChange={(event) => {
+              const postCopy = { ...post };
+              postCopy.formatId = event.target.value;
+              setPost(postCopy);
+            }}
+          >
             <option>Select a Format</option>
             {format.map((formatObj) => {
               return <FormatDropDown format={formatObj} />;
@@ -57,13 +74,34 @@ export const NewPostForm = ({ currentUser }) => {
         </div>
         <div>
           <label>Deck</label>
-          <select>
+          <select
+            className="new-post-deck"
+            onChange={(event) => {
+              const postCopy = { ...post };
+              postCopy.deckId = event.target.value;
+              setPost(postCopy);
+            }}
+          >
             <option>Choose a Deck</option>
             {deck.map((deckObj) => {
               return <DeckDropDown deck={deckObj} />;
             })}
           </select>
         </div>
+      </fieldset>
+      <fieldset>
+        <label>Body</label>
+        <textarea
+          className="new-post-body"
+          onChange={(event) => {
+            const postCopy = { ...post };
+            postCopy.body = event.target.value;
+            setPost(postCopy);
+          }}
+        />
+      </fieldset>
+      <fieldset>
+        <button className="submit-post">Submit Post</button>
       </fieldset>
     </form>
   );
