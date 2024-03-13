@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllFormats } from "../services/postService.js";
-import { FormatDropDown } from "./FormatDropDown.jsx";
+import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { useNavigate } from "react-router";
 
 export const PostFilter = ({ setShowFormat }) => {
