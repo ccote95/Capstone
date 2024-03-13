@@ -20,7 +20,10 @@ export const AllPosts = () => {
   /**gets all posts on initial render and stores them in state */
   useEffect(() => {
     getAllPosts().then((postsObj) => {
-      setPosts(postsObj);
+      const filteredPost = postsObj.filter((post) => {
+        return post.gameOver === false;
+      });
+      setPosts(filteredPost);
     });
   }, []);
 

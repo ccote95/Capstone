@@ -55,6 +55,7 @@ export const NewPostForm = ({ currentUser }) => {
         title: post.title,
         formatId: parseInt(post.formatId),
         deckId: parseInt(post.deckId),
+        gameOver: false,
         body: post.body,
         date: post.date,
       };
@@ -67,6 +68,7 @@ export const NewPostForm = ({ currentUser }) => {
         title: post.title,
         formatId: post.formatId,
         deckId: post.deckId,
+        gameOver: false,
         body: post.body,
         date: new Date().toLocaleDateString(),
       };
