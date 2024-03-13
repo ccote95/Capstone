@@ -10,7 +10,11 @@ export const NavBar = () => {
           All Posts
         </Link>
       </li>
-      <li className="navbar-item">My Posts</li>
+      <li className="navbar-item">
+        <Link to="/myposts" className="navbar-link">
+          My Posts
+        </Link>
+      </li>
       <li className="navbar-item">
         <Link
           className="navbar-link"
