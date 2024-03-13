@@ -8,6 +8,7 @@ import {
 import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { getAllDecks } from "../services/deckService.js";
 import { DeckDropDown } from "../dropdowns/DeckDropDown.jsx";
+import "./newPostForm.css";
 
 export const NewPostForm = ({ currentUser }) => {
   const [post, setPost] = useState({
@@ -59,11 +60,12 @@ export const NewPostForm = ({ currentUser }) => {
   };
 
   return (
-    <form className="new-post">
+    <form className="new-post" onSubmit={handleSave}>
       <fieldset>
         <div>
-          <label>Title</label>
+          <label>Title:</label>
           <input
+            required
             value={post.title}
             className="new-post-title"
             type="text"
@@ -76,8 +78,9 @@ export const NewPostForm = ({ currentUser }) => {
           />
         </div>
         <div>
-          <label>Format</label>
+          <label>Format:</label>
           <select
+            required
             className="new-post-format"
             onChange={(event) => {
               const postCopy = { ...post };
@@ -92,8 +95,9 @@ export const NewPostForm = ({ currentUser }) => {
           </select>
         </div>
         <div>
-          <label>Deck</label>
+          <label>Deck:</label>
           <select
+            required
             className="new-post-deck"
             onChange={(event) => {
               const postCopy = { ...post };
@@ -108,9 +112,10 @@ export const NewPostForm = ({ currentUser }) => {
           </select>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="new-body-field">
         <label>Body</label>
         <textarea
+          required
           className="new-post-body"
           onChange={(event) => {
             const postCopy = { ...post };
@@ -120,7 +125,7 @@ export const NewPostForm = ({ currentUser }) => {
         />
       </fieldset>
       <fieldset>
-        <button className="submit-post" onClick={handleSave}>
+        <button className="submit-post" type="submit">
           Submit Post
         </button>
       </fieldset>

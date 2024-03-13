@@ -1,0 +1,32 @@
+.new-post {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.new-post-title {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.new-body-field {
+  align-items: center;
+  margin: 30px;
+}
+
+.new-post-body {
+  height: 75px;
+  width: 400px;
+}
+
+.new-post-format {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.new-post-deck {
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
