@@ -4,6 +4,7 @@ import {
   createNewPost,
   getAllFormats,
   getPostById,
+  updatePost,
 } from "../services/postService.js";
 import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { getAllDecks } from "../services/deckService.js";
@@ -57,7 +58,7 @@ export const NewPostForm = ({ currentUser }) => {
         body: post.body,
         date: post.date,
       };
-      updatedPost(updatedPost).then(() => {
+      updatePost(updatedPost).then(() => {
         navigate("/myposts");
       });
     } else {
