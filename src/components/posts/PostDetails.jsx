@@ -113,6 +113,13 @@ export const PostDetails = ({ currentUser }) => {
               <div>{comment.user?.fullName}</div>
               <div className="comment-body">{comment.body}</div>
               <div className="comment-date">{comment.date}</div>
+              <div>
+                {currentUser.id === comment.user?.id ? (
+                  <button>DELETE</button>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           );
         })}
