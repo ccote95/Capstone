@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { getAllFormats } from "../services/postService.js";
-import { FormatDropDown } from "./FormatDropDown.jsx";
+import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
+import { useNavigate } from "react-router";
 
 export const PostFilter = ({ setShowFormat }) => {
   const [format, setFormat] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllFormats().then((formatObj) => {
@@ -17,7 +20,14 @@ export const PostFilter = ({ setShowFormat }) => {
 
   return (
     <div className="filter-container">
-      <button className="create-post-btn">Create Post</button>
+      <button
+        className="create-post-btn"
+        onClick={() => {
+          navigate("/allposts/create");
+        }}
+      >
+        Create Post
+      </button>
       <select
         className="format-dropdown"
         defaultValue="0"

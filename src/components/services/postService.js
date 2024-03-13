@@ -30,3 +30,14 @@ export const submitNewComment = (newComment) => {
   };
   return fetch("http://localhost:8000/comments", postOptions);
 };
+
+export const createNewPost = (newPost) => {
+  const postOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPost),
+  };
+  return fetch("http://localhost:8000/posts", postOptions);
+};
