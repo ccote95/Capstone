@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { getAllFormats, getPostById } from "../services/postService.js";
 import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { getAllDecks } from "../services/deckService.js";
+import { DeckDropDown } from "../dropdowns/DeckDropDown.jsx";
 
 export const NewPostForm = ({ currentUser }) => {
   const [post, setPost] = useState({
@@ -58,7 +59,9 @@ export const NewPostForm = ({ currentUser }) => {
           <label>Deck</label>
           <select>
             <option>Choose a Deck</option>
-            {deck.map((deckObj) => {})}
+            {deck.map((deckObj) => {
+              return <DeckDropDown deck={deckObj} />;
+            })}
           </select>
         </div>
       </fieldset>
