@@ -49,8 +49,10 @@ export const PostDetails = ({ currentUser }) => {
       body: comment,
       date: new Date().toDateString(),
     };
-    submitNewComment(newComment);
-    setComment("");
+    submitNewComment(newComment).then(() => {
+      setComment("");
+      reRenderPage();
+    });
   };
 
   const handleEditClick = () => {
