@@ -46,17 +46,33 @@ export const NewPostForm = ({ currentUser }) => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    const newPostObject = {
-      userId: currentUser.id,
-      title: post.title,
-      formatId: post.formatId,
-      deckId: post.deckId,
-      body: post.body,
-      date: new Date().toLocaleDateString(),
-    };
-    createNewPost(newPostObject).then(() => {
-      navigate("/allposts");
-    });
+
+    if (postId) {
+      const updatedPost = {
+        id: post.id,
+        userId: currentUser.id,
+        title: post.title,
+        formatId: parseInt(post.formatId),
+        deckId: parseInt(post.deckId),
+        body: post.body,
+        date: post.date,
+      };
+      updatedPost(updatedPost).then(() => {
+        navigate("/myposts");
+      });
+    } else {
+      const newPostObject = {
+        userId: currentUser.id,
+        title: post.title,
+        formatId: post.formatId,
+        deckId: post.deckId,
+        body: post.body,
+        date: new Date().toLocaleDateString(),
+      };
+      createNewPost(newPostObject).then(() => {
+        navigate("/allposts");
+      });
+    }
   };
 
   return (
@@ -128,9 +144,13 @@ export const NewPostForm = ({ currentUser }) => {
         />
       </fieldset>
       <fieldset>
-        <button className="submit-post" type="submit">
-          Submit Post
-        </button>
+        {postId ? (
+          <button>Save Post</button>
+        ) : (
+          <button className="submit-post" type="submit">
+            Submit Post
+          </button>
+        )}
       </fieldset>
     </form>
   );
