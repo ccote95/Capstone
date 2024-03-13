@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { getAllFormats, getPostById } from "../services/postService.js";
+import {
+  createNewPost,
+  getAllFormats,
+  getPostById,
+} from "../services/postService.js";
 import { FormatDropDown } from "../dropdowns/FormatDropDown.jsx";
 import { getAllDecks } from "../services/deckService.js";
 import { DeckDropDown } from "../dropdowns/DeckDropDown.jsx";
@@ -39,7 +43,8 @@ export const NewPostForm = ({ currentUser }) => {
     });
   }, []);
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
     const newPostObject = {
       userId: currentUser.id,
       title: post.title,
@@ -48,7 +53,7 @@ export const NewPostForm = ({ currentUser }) => {
       body: post.body,
       date: new Date().toLocaleDateString(),
     };
-    createPost(newPostObject).then(() => {
+    createNewPost(newPostObject).then(() => {
       navigate("/allposts");
     });
   };
