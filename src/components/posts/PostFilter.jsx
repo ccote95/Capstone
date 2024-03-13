@@ -23,7 +23,7 @@ export const PostFilter = ({ setShowFormat }) => {
       <button
         className="create-post-btn"
         onClick={() => {
-          navigate("/posts/create");
+          navigate("/allposts/create");
         }}
       >
         Create Post

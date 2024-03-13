@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getPostById } from "../services/postService.js";
 
-export const NewPostForm = () => {
+export const NewPostForm = ({ currentUser }) => {
   const [post, setPost] = useState({
     title: "",
     formatId: 0,
