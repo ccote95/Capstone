@@ -66,7 +66,7 @@ export const NewPostForm = ({ currentUser }) => {
           <label>Title:</label>
           <input
             required
-            value={post.title}
+            value={post.title || ""}
             className="new-post-title"
             type="text"
             placeholder="title of post"
@@ -80,6 +80,7 @@ export const NewPostForm = ({ currentUser }) => {
         <div>
           <label>Format:</label>
           <select
+            value={post.formatId || ""}
             required
             className="new-post-format"
             onChange={(event) => {
@@ -97,6 +98,7 @@ export const NewPostForm = ({ currentUser }) => {
         <div>
           <label>Deck:</label>
           <select
+            value={post.deckId || ""}
             required
             className="new-post-deck"
             onChange={(event) => {
@@ -115,6 +117,7 @@ export const NewPostForm = ({ currentUser }) => {
       <fieldset className="new-body-field">
         <label>Body</label>
         <textarea
+          value={post.body || ""}
           required
           className="new-post-body"
           onChange={(event) => {
