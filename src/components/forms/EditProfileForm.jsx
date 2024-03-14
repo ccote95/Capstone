@@ -11,7 +11,14 @@ import { deleteADeck } from "../services/deckService.js";
  */
 
 export const EditProfile = ({ currentUser }) => {
-  const [userProfile, setUserProfile] = useState();
+  const [userProfile, setUserProfile] = useState({
+    id: currentUser.id,
+    fullName: "",
+    age: 0,
+    email: "",
+    deckId: 0,
+    isStaff: false,
+  });
   const [selectedDeck, setSelectedDeck] = useState({ id: null, name: "" });
   const { userId } = useParams();
 
@@ -42,6 +49,16 @@ export const EditProfile = ({ currentUser }) => {
     deleteADeck(selectedDeck).then(() => {
       reRenderPage();
     });
+
+    const handleSaveProfile = () => {
+      const updateProfile = {
+        id: currentUser.id,
+        fullName: userProfile.fullName,
+        age: userProfile.age,
+        email: userProfile.email,
+        isStaff: userProfile.isStaff,
+      };
+    };
   };
   return (
     <form>
@@ -85,6 +102,9 @@ export const EditProfile = ({ currentUser }) => {
       >
         DELETE
       </button>
+      <div>
+        <button>Save Profile</button>
+      </div>
     </form>
   );
 };
