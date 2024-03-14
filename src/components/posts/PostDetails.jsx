@@ -99,7 +99,7 @@ export const PostDetails = ({ currentUser }) => {
               <button
                 className="edit-post-btn"
                 onClick={() => {
-                  handleEditClick;
+                  handleEditClick();
                 }}
               >
                 Edit Post

@@ -16,3 +16,14 @@ export const addADeck = (currentUser, deck) => {
   };
   return fetch("http://localhost:8000/decks", postOptions);
 };
+
+export const deleteADeck = (deck) => {
+  const postOptions = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(deck),
+  };
+  return fetch(`http://localhost:8000/decks/${deck.id} `, postOptions);
+};
