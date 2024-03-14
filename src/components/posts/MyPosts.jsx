@@ -21,7 +21,9 @@ export const MyPosts = ({ currentUser }) => {
       <div className="post-container">
         <div className="post-card">
           {currentUserPosts.map((post) => {
-            return <PostLayout post={post} key={post.id} />;
+            return (
+              <PostLayout post={post} key={post.id} currentUser={currentUser} />
+            );
           })}
         </div>
       </div>
