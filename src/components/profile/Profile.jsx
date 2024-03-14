@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { getUserInfoByCurrentUserId } from "../services/profileService.js";
 import "./Profile.css";
 import { addADeck } from "../services/deckService.js";
+import { useNavigate } from "react-router";
 
 export const Profile = ({ currentUser }) => {
   const [userProfile, setUserProfile] = useState();
   const [showModal, setShowModal] = useState(false);
   const [newDeckName, setNewDeckName] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     if (currentUser) {
       getUserInfoByCurrentUserId(parseInt(currentUser.id)).then((profile) => {
@@ -27,6 +29,10 @@ export const Profile = ({ currentUser }) => {
     getUserInfoByCurrentUserId(parseInt(currentUser.id)).then((profile) => {
       setUserProfile(profile);
     });
+  };
+
+  const handleEditClick = () => {
+    navigate(`/profile/${currentUser.id}`);
   };
 
   return (
@@ -57,7 +63,14 @@ export const Profile = ({ currentUser }) => {
           })}
         </div>
         <div className="edit-profile-btn-container">
-          <button className="edit-profile-btn">Edit Profile</button>
+          <button
+            className="edit-profile-btn"
+            onClick={() => {
+              handleEditClick();
+            }}
+          >
+            Edit Profile
+          </button>
         </div>
       </div>
       {showModal && (
