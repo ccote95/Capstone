@@ -6,6 +6,7 @@ import { AllPosts } from "../posts/AllPosts.jsx";
 import { PostDetails } from "../posts/PostDetails.jsx";
 import { NewPostForm } from "../forms/NewPostForm.jsx";
 import { MyPosts } from "../posts/MyPosts.jsx";
+import { Profile } from "../profile/Profile.jsx";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -46,6 +47,9 @@ export const ApplicationViews = () => {
             path=":postId"
             element={<NewPostForm currentUser={currentUser} />}
           />
+        </Route>
+        <Route path="profile">
+          <Route index element={<Profile currentUser={currentUser} />} />
         </Route>
       </Route>
     </Routes>
