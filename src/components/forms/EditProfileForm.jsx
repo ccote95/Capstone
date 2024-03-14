@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getCommentsByUserId } from "../services/commentService.js";
 import { getUserInfoByCurrentUserId } from "../services/profileService.js";
+import { deleteADeck } from "../services/deckService.js";
 
 /**need a function to delete the selected deck
  * need to make it so that when one is deleted the page rerenders
@@ -22,11 +23,25 @@ export const EditProfile = ({ currentUser }) => {
     }
   }, []);
 
+  const reRenderPage = () => {
+    if (userId) {
+      getUserInfoByCurrentUserId(userId).then((user) => {
+        setUserProfile(user);
+      });
+    }
+  };
+
   const handleRadioChange = (e) => {
     const deckId = parseInt(e.target.value);
     const deck = userProfile?.decks.find((deck) => deck.id === deckId);
     const deckName = deck ? deck.name : "";
     setSelectedDeck({ id: deckId, name: deckName || "" });
+  };
+
+  const handleDeletingDeck = () => {
+    deleteADeck(selectedDeck).then(() => {
+      reRenderPage();
+    });
   };
   return (
     <form>
@@ -62,6 +77,14 @@ export const EditProfile = ({ currentUser }) => {
           })}
         </div>
       </fieldset>
+      <button
+        onClick={() => {
+          handleDeletingDeck();
+        }}
+        type="button"
+      >
+        DELETE
+      </button>
     </form>
   );
 };
