@@ -5,6 +5,7 @@ import { NavBar } from "../navbar/NavBar.jsx";
 import { AllPosts } from "../posts/AllPosts.jsx";
 import { PostDetails } from "../posts/PostDetails.jsx";
 import { NewPostForm } from "../forms/NewPostForm.jsx";
+import { MyPosts } from "../posts/MyPosts.jsx";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -40,7 +41,7 @@ export const ApplicationViews = () => {
           />
         </Route>
         <Route path="myposts">
-          {/* <Route index element={"kfjalsdkjfalksdjf"} /> */}
+          <Route index element={<MyPosts currentUser={currentUser} />} />
           <Route
             path=":postId"
             element={<NewPostForm currentUser={currentUser} />}

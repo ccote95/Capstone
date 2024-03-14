@@ -35,3 +35,20 @@ export const updatePost = (updatedPost) => {
   };
   return fetch(`http://localhost:8000/posts/${updatedPost.id}`, updateOptions);
 };
+
+export const getCurrentUserPosts = (id) => {
+  return fetch(`http://localhost:8000/posts?userId=${id}`).then((res) =>
+    res.json()
+  );
+};
+
+export const deleteMyPost = (post) => {
+  const postOptions = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(post),
+  };
+  return fetch(`http://localhost:8000/posts/${post.id}`, postOptions);
+};

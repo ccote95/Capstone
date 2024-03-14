@@ -15,6 +15,12 @@ export const getAllComments = () => {
   );
 };
 
+export const getCommentsByUserId = (id) => {
+  return fetch(`http://localhost:8000/comments?userId=${id}`).then((res) =>
+    res.json()
+  );
+};
+
 export const deleteComment = (comment) => {
   const postOptions = {
     method: "DELETE",

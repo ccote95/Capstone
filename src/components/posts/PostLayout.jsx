@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./post.css";
 
-export const PostLayout = ({ post }) => {
+export const PostLayout = ({ post, currentUser, handleDeleting }) => {
   return (
     <div className="post">
       <div className="post-title">
@@ -14,8 +14,21 @@ export const PostLayout = ({ post }) => {
           </Link>
         </h3>
       </div>
-      <div className="post-format">{post.format.name}</div>
+      <div className="post-format">{post.format?.name}</div>
       <div className="post-date">{post.date}</div>
+      <div>
+        {currentUser ? (
+          <button
+            onClick={() => {
+              handleDeleting(post);
+            }}
+          >
+            DELETE
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

@@ -11,6 +11,11 @@ export const NavBar = () => {
         </Link>
       </li>
       <li className="navbar-item">
+        <Link to="/myposts" className="navbar-link">
+          My Posts
+        </Link>
+      </li>
+      <li className="navbar-item">
         <Link
           className="navbar-link"
           to=""
