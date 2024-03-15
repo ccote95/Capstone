@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { getCommentsByUserId } from "../services/commentService.js";
-import { getUserInfoByCurrentUserId } from "../services/profileService.js";
+import { useNavigate, useParams } from "react-router";
+
+import {
+  getUserInfoByCurrentUserId,
+  updateUserInfo,
+} from "../services/profileService.js";
 import { deleteADeck } from "../services/deckService.js";
 
 /**need a function to delete the selected deck
@@ -14,6 +17,7 @@ export const EditProfile = ({ currentUser }) => {
   const [userProfile, setUserProfile] = useState();
   const [selectedDeck, setSelectedDeck] = useState({ id: null, name: "" });
   const { userId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (userId) {
@@ -21,7 +25,7 @@ export const EditProfile = ({ currentUser }) => {
         setUserProfile(user);
       });
     }
-  }, []);
+  }, [userId]);
 
   const reRenderPage = () => {
     if (userId) {
@@ -43,39 +47,80 @@ export const EditProfile = ({ currentUser }) => {
       reRenderPage();
     });
   };
+  const handleSaveProfile = (e) => {
+    e.preventDefault();
+    const updateProfile = {
+      id: currentUser.id,
+      fullName: userProfile.fullName,
+      age: userProfile.age,
+      email: userProfile.email,
+      isStaff: userProfile.isStaff,
+    };
+    updateUserInfo(updateProfile).then(() => {
+      navigate("/profile");
+    });
+  };
   return (
-    <form>
+    <form onSubmit={handleSaveProfile}>
       <fieldset>
         <div>
           <label>Full Name:</label>
-          <input required value={userProfile?.fullName || ""} type="text" />
+          <input
+            required
+            value={userProfile?.fullName || ""}
+            type="text"
+            onChange={(event) => {
+              const userCopy = { ...userProfile };
+              userCopy.fullName = event.target.value;
+              setUserProfile(userCopy);
+            }}
+          />
         </div>
         <div>
           <label>Age:</label>
-          <input required value={userProfile?.age} text="text" />
+          <input
+            required
+            value={userProfile?.age || ""}
+            type="text"
+            onChange={(event) => {
+              const userCopy = { ...userProfile };
+              userCopy.age = event.target.value;
+              setUserProfile(userCopy);
+            }}
+          />
         </div>
         <div>
           <label>Email:</label>
-          <input required value={userProfile?.email} type="text" />
+          <div>
+            <input
+              required
+              value={userProfile?.email || ""}
+              type="text"
+              onChange={(event) => {
+                const userCopy = { ...userProfile };
+                userCopy.email = event.target.value;
+                setUserProfile(userCopy);
+              }}
+            />
+          </div>
         </div>
       </fieldset>
-      <fieldset>
-        <div>
-          <label>Deck List:</label>
-          {userProfile?.decks.map((deck) => {
-            return (
-              <>
-                <input
-                  type="radio"
-                  name="deck"
-                  value={deck.id}
-                  onChange={handleRadioChange}
-                ></input>
-                {deck.name}
-              </>
-            );
-          })}
-        </div>
+      <fieldset key={userProfile?.decks.id}>
+        <label>Deck List:</label>
+        {userProfile?.decks.map((deck) => {
+          return (
+            <div key={deck.id}>
+              <input
+                type="radio"
+                name="deck"
+                value={deck.id}
+                onChange={handleRadioChange}
+                checked={selectedDeck.id === deck.id}
+              ></input>
+              <label>{deck.name}</label>
+            </div>
+          );
+        })}
       </fieldset>
       <button
         onClick={() => {
@@ -85,6 +130,9 @@ export const EditProfile = ({ currentUser }) => {
       >
         DELETE
       </button>
+      <div>
+        <button type="submit">Save Profile</button>
+      </div>
     </form>
   );
 };
