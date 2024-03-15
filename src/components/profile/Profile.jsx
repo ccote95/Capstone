@@ -43,7 +43,7 @@ export const Profile = ({ currentUser }) => {
           <div className="user-fullname">{userProfile?.fullName}</div>
         </label>
         <label className="flex age">
-          <h4>Age</h4>
+          <h4>Age:</h4>
 
           <div className="user-age">{userProfile?.age}</div>
         </label>
@@ -51,17 +51,13 @@ export const Profile = ({ currentUser }) => {
           <h4>Email:</h4>
           <div className="user-email">{userProfile?.email}</div>
         </label>
-        <label>
-          Decks
-          <button className="add-deck-btn" onClick={() => setShowModal(true)}>
-            Add A Deck
-          </button>
-        </label>
+        <label className="deck-label">Decks:</label>
         <div className="user-decks">
           {userProfile?.decks.map((deck) => {
-            return <div>{deck.name}</div>;
+            return <li>{deck.name}</li>;
           })}
         </div>
+        <div className="add-deck-btn-container"></div>
         <div className="edit-profile-btn-container">
           <button
             className="edit-profile-btn"
@@ -70,6 +66,9 @@ export const Profile = ({ currentUser }) => {
             }}
           >
             Edit Profile
+          </button>
+          <button className="add-deck-btn" onClick={() => setShowModal(true)}>
+            Add A Deck
           </button>
         </div>
       </div>
