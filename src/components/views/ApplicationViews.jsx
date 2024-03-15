@@ -8,6 +8,7 @@ import { NewPostForm } from "../forms/NewPostForm.jsx";
 import { MyPosts } from "../posts/MyPosts.jsx";
 import { Profile } from "../profile/Profile.jsx";
 import { EditProfile } from "../forms/EditProfileForm.jsx";
+import { MyComments } from "../comments/MyComments.jsx";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -55,6 +56,9 @@ export const ApplicationViews = () => {
             path=":userId"
             element={<EditProfile currentUser={currentUser} />}
           />
+        </Route>
+        <Route path="mycomments">
+          <Route index element={<MyComments currentUser={currentUser} />} />
         </Route>
       </Route>
     </Routes>
