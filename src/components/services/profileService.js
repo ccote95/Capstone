@@ -5,12 +5,15 @@ export const getUserInfoByCurrentUserId = (id) => {
 };
 
 export const updateUserInfo = (updatedProfile) => {
-  postOptions = {
+  const putOptions = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(updatedProfile),
   };
-  return fetch(`http://localhost:8000/users/${updatedProfile.id}?_embed=decks`);
+  return fetch(
+    `http://localhost:8000/users/${updatedProfile.id}?_embed=decks`,
+    putOptions
+  );
 };
