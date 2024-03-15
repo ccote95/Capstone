@@ -1,5 +1,5 @@
 .my-comment-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .my-comment-card {
@@ -21,4 +21,10 @@
   margin: auto;
   margin-top: 3em;
   border-radius: 15px;
+  -webkit-box-shadow: 4px 6px 21px 10px rgba(0, 0, 0, 0.55);
+  box-shadow: 4px 6px 21px 10px rgba(0, 0, 0, 0.55);
+}
+
+.my-comment-title {
+  text-align: center;
 }
