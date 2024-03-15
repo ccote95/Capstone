@@ -42,13 +42,13 @@ export const getCurrentUserPosts = (id) => {
   );
 };
 
-export const deleteMyPost = (post) => {
+export const deleteMyPost = (deletedPost) => {
   const postOptions = {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(post),
+    body: JSON.stringify(deletedPost),
   };
-  return fetch(`http://localhost:8000/posts/${post.id}`, postOptions);
+  return fetch(`http://localhost:8000/posts/${deletedPost.id}`, postOptions);
 };
