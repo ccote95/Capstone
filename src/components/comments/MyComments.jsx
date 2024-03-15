@@ -12,7 +12,10 @@ export const MyComments = ({ currentUser }) => {
     if (currentUser) {
       getCommentsByCurrentUserId(parseInt(currentUser.id)).then(
         (userComments) => {
-          setCurrentUserComments(userComments);
+          const foundComments = userComments.filter(
+            (comments) => comments.post.gameOver === false
+          );
+          setCurrentUserComments(foundComments);
         }
       );
     }
