@@ -31,3 +31,9 @@ export const deleteComment = (comment) => {
   };
   return fetch(`http://localhost:8000/comments/${comment.id}`, postOptions);
 };
+
+export const getCommentsByCurrentUserId = (id) => {
+  return fetch(`http://localhost:8000/comments?userId=${id}&_expand=post`).then(
+    (res) => res.json()
+  );
+};
