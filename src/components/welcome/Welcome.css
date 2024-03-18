@@ -1,9 +1,12 @@
 .welcome-container {
-  border: 1px solid black;
+  border: 6px outset black;
   border-radius: 15px;
-  width: 60%;
+  width: 60em;
   margin: auto;
-  /* margin-top: 10em; */
+  margin-top: 10em;
+  height: 20em;
+  background-color: aliceblue;
+  opacity: 0.9;
 }
 
 .welcome-title > h1 {
@@ -11,13 +14,19 @@
   font-weight: lighter;
   /* font-style: italic; */
 }
-.welcome-title > p {
+.welcome-quote {
   text-align: center;
   font-weight: lighter;
   font-style: italic;
+  font-size: x-large;
+  margin-top: 7em;
 }
 
 .page-background {
-  background-color: aqua;
+  background-image: url("../image/mtg.png");
+  background-size: cover;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
