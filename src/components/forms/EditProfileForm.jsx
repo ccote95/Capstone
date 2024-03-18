@@ -6,6 +6,7 @@ import {
   updateUserInfo,
 } from "../services/profileService.js";
 import { deleteADeck } from "../services/deckService.js";
+import "./editProfileForm.css";
 
 /**need a function to delete the selected deck
  * need to make it so that when one is deleted the page rerenders
@@ -61,7 +62,7 @@ export const EditProfile = ({ currentUser }) => {
     });
   };
   return (
-    <form onSubmit={handleSaveProfile}>
+    <form onSubmit={handleSaveProfile} className="edit-form">
       <fieldset>
         <div>
           <label>Full Name:</label>
@@ -91,18 +92,17 @@ export const EditProfile = ({ currentUser }) => {
         </div>
         <div>
           <label>Email:</label>
-          <div>
-            <input
-              required
-              value={userProfile?.email || ""}
-              type="text"
-              onChange={(event) => {
-                const userCopy = { ...userProfile };
-                userCopy.email = event.target.value;
-                setUserProfile(userCopy);
-              }}
-            />
-          </div>
+
+          <input
+            required
+            value={userProfile?.email || ""}
+            type="text"
+            onChange={(event) => {
+              const userCopy = { ...userProfile };
+              userCopy.email = event.target.value;
+              setUserProfile(userCopy);
+            }}
+          />
         </div>
       </fieldset>
       <fieldset key={userProfile?.decks.id}>
