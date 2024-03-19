@@ -64,7 +64,7 @@ export const EditProfile = ({ currentUser }) => {
   return (
     <form onSubmit={handleSaveProfile} className="edit-form">
       <fieldset>
-        <div>
+        <div id="form">
           <label>Full Name:</label>
           <input
             required
@@ -77,9 +77,10 @@ export const EditProfile = ({ currentUser }) => {
             }}
           />
         </div>
-        <div>
+        <div id="form">
           <label>Age:</label>
           <input
+            className="age-input"
             required
             value={userProfile?.age || ""}
             type="text"
@@ -90,11 +91,13 @@ export const EditProfile = ({ currentUser }) => {
             }}
           />
         </div>
-        <div>
+        <div id="form">
           <label>Email:</label>
 
           <input
+            className="email-input"
             required
+            size="30"
             value={userProfile?.email || ""}
             type="text"
             onChange={(event) => {
@@ -106,7 +109,7 @@ export const EditProfile = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset key={userProfile?.decks.id}>
-        <label>Deck List:</label>
+        <label id="form">Deck List:</label>
         {userProfile?.decks.map((deck) => {
           return (
             <div key={deck.id}>
@@ -122,16 +125,24 @@ export const EditProfile = ({ currentUser }) => {
           );
         })}
       </fieldset>
-      <button
-        onClick={() => {
-          handleDeletingDeck();
-        }}
-        type="button"
-      >
-        DELETE
-      </button>
-      <div>
-        <button type="submit">Save Profile</button>
+      <div id="btn-container">
+        <div className="delete-btn">
+          <button
+            id="delete-btn"
+            onClick={() => {
+              handleDeletingDeck();
+            }}
+            type="button"
+          >
+            Delete A Deck
+          </button>
+        </div>
+
+        <div className="save-btn">
+          <button id="save-btn" type="submit">
+            Save Profile
+          </button>
+        </div>
       </div>
     </form>
   );

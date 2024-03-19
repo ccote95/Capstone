@@ -40,10 +40,9 @@
   display: flex;
   border-radius: 5px;
   width: 26em;
-
+  border: 8px outset #1c6ea4;
   margin: auto;
   flex-direction: column;
-
   background-color: white;
   -webkit-box-shadow: 5px 10px 32px 22px rgba(0, 0, 0, 0.44);
   box-shadow: 5px 10px 32px 22px rgba(0, 0, 0, 0.44);
@@ -76,6 +75,9 @@
   font-size: x-large;
 }
 .user-age {
+  margin-left: 5px;
+}
+.user-email {
   margin-left: 5px;
 }
 
