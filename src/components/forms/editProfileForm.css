@@ -1,6 +1,6 @@
 .edit-form {
-  background-color: rgb(243, 230, 212);
-
+  background-color: rgba(207, 206, 204, 0.932);
+  border: 8px outset #1c6ea4;
   margin: auto;
   margin-top: 10em;
   width: 30em;

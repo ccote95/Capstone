@@ -50,7 +50,7 @@ export const Profile = ({ currentUser }) => {
           </label>
           <label className="flex email">
             <h4>Email:</h4>
-            <div className="user-email">{userProfile?.email}</div>
+            <div className="user-email"> {userProfile?.email}</div>
           </label>
           <label className="deck-label">Decks:</label>
         </div>
