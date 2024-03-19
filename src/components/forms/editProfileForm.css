@@ -1,5 +1,40 @@
 .edit-form {
   background-color: rgb(243, 230, 212);
-  width: 50%;
+
   margin: auto;
+  margin-top: 10em;
+  width: 30em;
+}
+
+#form {
+  font-size: x-large;
+}
+.age-input {
+  width: 30px;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.delete-btn {
+  margin-left: -10px;
+}
+
+#delete-btn:hover {
+  background-color: rgb(243, 8, 8);
+  color: aliceblue;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#save-btn:hover {
+  background-color: rgb(24, 8, 243);
+  color: aliceblue;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
 }
