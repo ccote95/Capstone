@@ -8,8 +8,8 @@
 .post {
   margin-top: 10px;
   flex-basis: 30%;
-  background-color: #dda15e;
-
+  background-color: rgba(255, 255, 255, 0.74);
+  border: 9px outset #1c6ea4;
   box-sizing: border-box;
   margin: auto;
   margin-top: 3em;
@@ -26,6 +26,7 @@
 .post-date {
   text-align: start;
   margin-left: 10px;
+  margin-bottom: -20x;
 }
 
 .post-format {
@@ -45,15 +46,24 @@
 }
 
 .format-dropdown {
-  margin-right: 10px;
+  margin-right: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10em;
 }
 
 .create-post-btn {
   margin-left: 7px;
   height: 25px;
-  background-color: #606c38;
-  color: white;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  width: 10em;
   cursor: pointer;
+}
+.create-post-btn:hover {
+  background-color: blue;
+  color: white;
 }
 
 .post-details {
@@ -139,4 +149,20 @@
 
 .myposts-title {
   text-align: center;
+  border: 9px outset #1c6ea4;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.74);
+  width: 40%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#delete-btn {
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

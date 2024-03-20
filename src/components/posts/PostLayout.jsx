@@ -15,10 +15,11 @@ export const PostLayout = ({ post, currentUser, handleDeleting }) => {
         </h3>
       </div>
       <div className="post-format">{post.format?.name}</div>
-      <div className="post-date">{post.date}</div>
-      <div>
+      <div id="button-container">
+        <div className="post-date">{post.date}</div>
         {currentUser ? (
           <button
+            id="delete-btn"
             onClick={() => {
               handleDeleting(post);
             }}
