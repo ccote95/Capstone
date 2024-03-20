@@ -40,11 +40,11 @@
 
 form {
   margin: 3rem 5rem;
-  border: 1px solid var(--outline);
+  /* border: 1px solid var(--outline); */
   border-radius: 10px;
   padding: 1rem 0rem 0rem 1rem;
   box-shadow: 1px 2px 5px lightgray;
-  background-color: var(--offWhite);
+  background-color: rgba(255, 255, 255, 0.726);
 }
 
 fieldset {
