@@ -7,12 +7,14 @@
   text-align: center;
   align-items: center;
 }
+.my-comment-container {
+}
 
 .comment {
   margin-top: 10px;
   flex-basis: 30%;
-  background-color: #dda15e;
-
+  background-color: rgba(255, 255, 255, 0.74);
+  border: 9px outset #1c6ea4;
   box-sizing: border-box;
   margin: auto;
   margin-top: 3em;
@@ -23,4 +25,41 @@
 
 .my-comment-title {
   text-align: center;
+  /* border: 10px outset #1c6ea4; */
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.678);
+  width: 40%;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.my-comment-post-title {
+  font-size: larger;
+  font-style: italic;
+}
+
+#post-title {
+  font-size: xx-large;
+}
+
+#your-comment {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.my-comment-delete-container {
+  display: flex;
+  justify-content: end;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.my-comment-delete:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+.my-comment-delete {
+  border-radius: 5px;
 }

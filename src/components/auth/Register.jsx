@@ -49,7 +49,7 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form-login" onSubmit={handleRegister}>
-        <h1>Name TBD</h1>
+        <h1>MtgConnect</h1>
         <h2>Please Register</h2>
         <fieldset>
           <div className="form-group">
@@ -76,22 +76,7 @@ export const Register = (props) => {
             />
           </div>
         </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>
-              <input
-                onChange={(evt) => {
-                  const copy = { ...customer };
-                  copy.isStaff = evt.target.checked;
-                  setCustomer(copy);
-                }}
-                type="checkbox"
-                id="isStaff"
-              />
-              I am an employee{" "}
-            </label>
-          </div>
-        </fieldset>
+
         <fieldset>
           <div className="form-group">
             <button className="login-btn btn-info" type="submit">
