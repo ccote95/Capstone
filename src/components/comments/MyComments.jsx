@@ -41,15 +41,15 @@ export const MyComments = ({ currentUser }) => {
         <h1>My Comments</h1>
       </div>
       <div className="my-comment-container">
-        <div className="my-comment-card">
+        <div className="my-comment-card" key={currentUserComments.id}>
           {currentUserComments.map((comment) => {
             return (
               <div className="comment" key={comment.id}>
-                <label>Post Title:</label>
+                <label id="post-title">Post Title:</label>
                 <div className="my-comment-post-title">
                   {comment.post?.title}
                 </div>
-                <label>Your Comment:</label>
+                <label id="your-comment">Your Comment:</label>
                 <div className="my-comment">{comment.body}</div>
                 <div className="my-comment-delete-container">
                   <button
