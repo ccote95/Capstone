@@ -33,7 +33,7 @@ export const Login = () => {
     <main className="container-login">
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1>Name TBD</h1>
+          <h1>MtgConnect </h1>
           <h2>Please sign in</h2>
           <fieldset>
             <div className="form-group">
@@ -54,11 +54,11 @@ export const Login = () => {
                 Sign in
               </button>
             </div>
+            <section className="register">
+              <Link to="/register">Not a member yet?</Link>
+            </section>
           </fieldset>
         </form>
-      </section>
-      <section>
-        <Link to="/register">Not a member yet?</Link>
       </section>
     </main>
   );
