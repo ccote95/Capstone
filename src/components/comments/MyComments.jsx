@@ -4,6 +4,7 @@ import {
   getCommentsByCurrentUserId,
 } from "../services/commentService.js";
 import "./MyComments.css";
+import { Link } from "react-router-dom";
 
 export const MyComments = ({ currentUser }) => {
   const [currentUserComments, setCurrentUserComments] = useState([]);
@@ -47,7 +48,12 @@ export const MyComments = ({ currentUser }) => {
               <div className="comment" key={comment.id}>
                 <label id="post-title">Post Title:</label>
                 <div className="my-comment-post-title">
-                  {comment.post?.title}
+                  <Link
+                    to={`/allposts/${comment.post.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    {comment.post?.title}
+                  </Link>
                 </div>
                 <label id="your-comment">Your Comment:</label>
                 <div className="my-comment">{comment.body}</div>

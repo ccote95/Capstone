@@ -7,10 +7,8 @@
   text-align: center;
   align-items: center;
 }
-/* .my-comment-container {
-  width: 100em;
-  height: 40em;
-} */
+.my-comment-container {
+}
 
 .comment {
   margin-top: 10px;
