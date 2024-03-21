@@ -43,7 +43,7 @@ export const AllPosts = () => {
       <div className="post-container">
         <div className="post-card">
           {filteredFormat.map((post) => {
-            return <PostLayout post={post} />;
+            return <PostLayout post={post} key={post.id} />;
           })}
         </div>
       </div>
