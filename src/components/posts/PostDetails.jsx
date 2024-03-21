@@ -122,6 +122,7 @@ export const PostDetails = ({ currentUser }) => {
         </section>
       </article>
       <div className="comment-container">
+        <h2 id="comments">Comments</h2>
         {commentList.map((comment) => {
           return (
             <div className="comments">

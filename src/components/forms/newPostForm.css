@@ -1,14 +1,17 @@
 .new-post {
-  background-color: blanchedalmond;
+  background-color: rgba(250, 250, 250, 0.76);
   display: flex;
   flex-direction: column;
-  width: 50%;
+  border: 7px outset #1c6ea4;
+  width: 40%;
   margin: auto;
+  margin-top: 2em;
 }
 
 .new-post-title {
   margin-left: 5px;
   margin-bottom: 5px;
+  border-radius: 3px;
 }
 
 .new-body-field {
@@ -19,6 +22,8 @@
 .new-post-body {
   height: 75px;
   width: 400px;
+  margin-left: 2em;
+  border-radius: 5px;
 }
 
 .new-post-format {
@@ -29,4 +34,27 @@
 .new-post-deck {
   margin-left: 5px;
   margin-bottom: 5px;
+}
+
+.label {
+  font-size: x-large;
+}
+
+.body {
+  margin-top: -10px;
+}
+
+.body-container {
+  display: flex;
+}
+
+.save-post:hover {
+  background-color: blue;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+#comments {
+  margin-left: -15em;
 }

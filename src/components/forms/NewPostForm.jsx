@@ -82,7 +82,7 @@ export const NewPostForm = ({ currentUser }) => {
     <form className="new-post" onSubmit={handleSave}>
       <fieldset>
         <div>
-          <label>Title:</label>
+          <label className="label">Title:</label>
           <input
             required
             value={post.title || ""}
@@ -97,7 +97,7 @@ export const NewPostForm = ({ currentUser }) => {
           />
         </div>
         <div>
-          <label>Format:</label>
+          <label className="label">Format:</label>
           <select
             value={post.formatId || ""}
             required
@@ -115,7 +115,7 @@ export const NewPostForm = ({ currentUser }) => {
           </select>
         </div>
         <div>
-          <label>Deck:</label>
+          <label className="label">Deck:</label>
           <select
             value={post.deckId || ""}
             required
@@ -134,21 +134,23 @@ export const NewPostForm = ({ currentUser }) => {
         </div>
       </fieldset>
       <fieldset className="new-body-field">
-        <label>Body</label>
-        <textarea
-          value={post.body || ""}
-          required
-          className="new-post-body"
-          onChange={(event) => {
-            const postCopy = { ...post };
-            postCopy.body = event.target.value;
-            setPost(postCopy);
-          }}
-        />
+        <div className="body-container">
+          <label className="label body">Body: </label>
+          <textarea
+            value={post.body || ""}
+            required
+            className="new-post-body"
+            onChange={(event) => {
+              const postCopy = { ...post };
+              postCopy.body = event.target.value;
+              setPost(postCopy);
+            }}
+          />
+        </div>
       </fieldset>
       <fieldset>
         {postId ? (
-          <button>Save Post</button>
+          <button className="save-post">Save Post</button>
         ) : (
           <button className="submit-post" type="submit">
             Submit Post
