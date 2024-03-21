@@ -125,7 +125,7 @@ export const PostDetails = ({ currentUser }) => {
         <h2 id="comments">Comments</h2>
         {commentList.map((comment) => {
           return (
-            <div className="comments">
+            <div className="comments" key={comment.id}>
               <div>{comment.user?.fullName}</div>
               <div className="comment-body">{comment.body}</div>
               <div className="comment-date">{comment.date}</div>
