@@ -81,7 +81,7 @@ export const PostDetails = ({ currentUser }) => {
     });
   };
   return (
-    <div>
+    <div id="post-details-container">
       <article className="post-details">
         <section className="post-info">
           <div className="post-title">{post.title}</div>
@@ -95,27 +95,31 @@ export const PostDetails = ({ currentUser }) => {
         </section>
         <section>
           {currentUser?.id === post.userId ? (
-            <div className="edit-post">
-              <button
-                className="edit-post-btn"
-                onClick={() => {
-                  handleEditClick();
-                }}
-              >
-                Edit Post
-              </button>
+            <div id="button-container">
+              <div className="edit-post">
+                <button
+                  className="edit-post-btn"
+                  onClick={() => {
+                    handleEditClick();
+                  }}
+                >
+                  Edit Post
+                </button>
+              </div>
+              <div className="game-over-btn-container">
+                {currentUser?.id === post.userId ? (
+                  <button className="game-over-btn" onClick={handleGameOver}>
+                    Game Over
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           ) : (
             ""
           )}
         </section>
-        <div className="game-over-btn">
-          {currentUser?.id === post.userId ? (
-            <button onClick={handleGameOver}>Game Over</button>
-          ) : (
-            ""
-          )}
-        </div>
       </article>
       <div className="comment-container">
         {commentList.map((comment) => {
@@ -127,6 +131,7 @@ export const PostDetails = ({ currentUser }) => {
               <div>
                 {currentUser.id === comment.user?.id ? (
                   <button
+                    className="comment-delete"
                     onClick={() => {
                       handleDeleteComment(comment);
                     }}
