@@ -82,3 +82,8 @@ http://localhost:5173/login
 ### Wireframe
 [Wireframe](https://miro.com/app/board/uXjVNj8wUwk=/)
 
+---
+
+### ERD
+[ERD](https://dbdiagram.io/d/Capstone-65ea289ab1f3d4062c6725d5)
+
