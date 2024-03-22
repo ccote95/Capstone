@@ -77,3 +77,8 @@ http://localhost:5173/login
 - When you navigate to the my comments page you will only see the comments you have made
 - When you click on the post title in one of your comments you will be navigate to that posts details
 
+---
+
+### Wireframe
+[Wireframe](https://miro.com/app/board/uXjVNj8wUwk=/)
+
