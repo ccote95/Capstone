@@ -44,3 +44,36 @@ You're going to have to clone down this repository. You will need node and npm i
 1. npm run dev
 2. Navigate to the login page
 http://localhost:5173/login
+
+
+---
+
+### Essential structure
+
+##### When you login
+- As a user when you login you will be navigated to a welcome page
+
+##### All Posts
+- Users can view posts by all users
+- Users can create a post and filter posts based on the format of the post
+- A user can click on the title of a post and be navigated to the post details page.
+
+
+##### Post Details
+- A user can comment on a post if they so wish to
+- If you are the author of a post you will see a game over button render
+- When you click the game over button the post will be removed from the all posts page.
+
+
+##### Profile
+- A user can edit their profile and add new decks for them to use in posts
+- When you edit your profile you can delete decks if you'd like.
+
+##### My Posts
+- When you navigate to the my posts page you will only see the posts you have made.
+
+
+##### My Comments
+- When you navigate to the my comments page you will only see the comments you have made
+- When you click on the post title in one of your comments you will be navigate to that posts details
+
