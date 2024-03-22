@@ -20,4 +20,27 @@ You will be able to interact with each post by leaving comments if you would lik
 ---
 
 ### Languages Used
---
+---
+1. React
+2. JavaScript
+3. Html
+4. CSS
+
+---
+
+### Installation and Setup
+
+---
+
+You're going to have to clone down this repository. You will need node and npm installed globaly on your machine
+
+### Install:
+1. npm install
+
+### Database:
+1. Json-server database.json -p 8000
+
+### Run Application:
+1. npm run dev
+2. Navigate to the login page
+http://localhost:5173/login
