@@ -1,8 +1,12 @@
-# React + Vite
+### Magic the Gathering group finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+### Problem Solved
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+Magic the Gathering is a fun trading card game that requires 2 - 4 people to play depending on the format.
+Thats where MtgConnect comes into play, with this application you will be able to create a profile and start looking for groups to play with.
+Within each post you will see the type of format someone is looking to play and their deck that they are trying to use.
+You will be able to interact with each post by leaving comments if you would like to play or not.
