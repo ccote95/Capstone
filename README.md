@@ -16,3 +16,8 @@ You will be able to interact with each post by leaving comments if you would lik
 ### Database
 
 [Capstone Api](https://github.com/ccote95/Capstone-api) 
+
+---
+
+### Languages Used
+--
