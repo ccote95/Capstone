@@ -4,7 +4,7 @@
 
 ### Problem Solved
 
----
+
 
 Magic the Gathering is a fun trading card game that requires 2 - 4 people to play depending on the format.
 Thats where MtgConnect comes into play, with this application you will be able to create a profile and start looking for groups to play with.
