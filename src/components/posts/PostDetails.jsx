@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
       userId: currentUser.id,
       postId: post.id,
       body: comment,
-      date: new Date().toDateString(),
+      date: new Date().toLocaleString(),
     };
     submitNewComment(newComment).then(() => {
       setComment("");
