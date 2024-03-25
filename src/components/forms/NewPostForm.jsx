@@ -40,7 +40,7 @@ export const NewPostForm = ({ currentUser }) => {
   }, []);
 
   useEffect(() => {
-    getAllDecks().then((deckObj) => {
+    getAllDecks(currentUser.id).then((deckObj) => {
       setDeck(deckObj);
     });
   }, []);
