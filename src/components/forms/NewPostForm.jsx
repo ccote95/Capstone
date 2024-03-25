@@ -40,7 +40,7 @@ export const NewPostForm = ({ currentUser }) => {
   }, []);
 
   useEffect(() => {
-    getAllDecks().then((deckObj) => {
+    getAllDecks(currentUser.id).then((deckObj) => {
       setDeck(deckObj);
     });
   }, []);
@@ -70,7 +70,7 @@ export const NewPostForm = ({ currentUser }) => {
         deckId: post.deckId,
         gameOver: false,
         body: post.body,
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleString(),
       };
       createNewPost(newPostObject).then(() => {
         navigate("/allposts");

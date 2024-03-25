@@ -1,5 +1,7 @@
-export const getAllDecks = () => {
-  return fetch("http://localhost:8000/decks").then((res) => res.json());
+export const getAllDecks = (id) => {
+  return fetch(`http://localhost:8000/decks?userId=${id}`).then((res) =>
+    res.json()
+  );
 };
 
 export const addADeck = (currentUser, deck) => {
