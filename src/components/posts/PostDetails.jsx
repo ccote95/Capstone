@@ -47,7 +47,7 @@ export const PostDetails = ({ currentUser }) => {
       userId: currentUser.id,
       postId: post.id,
       body: comment,
-      date: new Date().toDateString(),
+      date: new Date().toLocaleString(),
     };
     submitNewComment(newComment).then(() => {
       setComment("");
@@ -149,7 +149,7 @@ export const PostDetails = ({ currentUser }) => {
       </div>
       <div className="main-comment-container">
         <div className="comment-flexbox">
-          <h3>Comment</h3>
+          <h3 className="comment-section-title">Comment</h3>
           <textarea
             className="input-box"
             value={comment}
