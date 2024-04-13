@@ -1,4 +1,4 @@
-### Magic the Gathering group finder
+### MtgConnect
 
 ---
 
