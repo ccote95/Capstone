@@ -66,8 +66,8 @@ export const NewPostForm = ({ currentUser }) => {
       const newPostObject = {
         userId: currentUser.id,
         title: post.title,
-        formatId: post.formatId,
-        deckId: post.deckId,
+        formatId: parseInt(post.formatId),
+        deckId: parseInt(post.deckId),
         gameOver: false,
         body: post.body,
         date: new Date().toLocaleString(),
